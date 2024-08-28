@@ -1,0 +1,1 @@
+docker run -p 9200:9200 -p 9600:9600 -e "discovery.type=single-node" -e "OPENSEARCH_INITIAL_ADMIN_PASSWORD=J@r#o19b3" -d -v /Users/andresjaromezuk/Desktop/DEEPLEARNING/TPS/sistema-recomendacion/data/vector_db/db_data:/usr/share/opensearch/data opensearchproject/opensearch:latest
