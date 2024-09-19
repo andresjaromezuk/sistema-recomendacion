@@ -1,4 +1,67 @@
 from opensearchpy import Field, Boolean, Float, Integer, Document, Keyword, Text, DenseVector, Nested, Date, Object
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
+
+Base = declarative_base()
+
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    occupation = Column(String)
+    active_since = Column(String)
+
+class Movie(Base):
+    __tablename__ = 'movies'
+    id = Column(Integer, primary_key=True)
+    name=  Column(String)
+    release_date= Column(String)
+    imbd_url = Column(String)
+    genres = Column(String)
+    # unknown = Column(String)
+    # action = Column(String)
+    # adventure = Column(String)
+    # animation = Column(String)
+    # children = Column(String)
+    # comedy = Column(String)
+    # crime = Column(String)
+    # documentary = Column(String)
+    # drama = Column(String)
+    # fantasy = Column(String)
+    # film_noir = Column(String)
+    # horror = Column(String)
+    # musical = Column(String)
+    # mystery = Column(String)
+    # romance = Column(String)
+    # sci_fi = Column(String)
+    # thriller = Column(String)
+    # war = Column(String)
+    # western = Column(String)
+
+class Worker(Base):
+    __tablename__ = 'workers'
+    id = Column(Integer, primary_key=True)
+    position= Column(String),
+    category =  Column(String)
+    working_hours =  Column(String)
+    start_date =  Column(String)
+
+class People(Base):
+    __tablename__ = 'peoples'
+    id = Column(Integer, primary_key=True)
+    full_name= Column(String)
+    year_of_birth= Column(String)
+    gender= Column(String)
+    zip_code = Column(String)
+
+class Score(Base):
+    __tablename__ = 'scores'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(String)
+    movie_id = Column(String)
+    rating = Column(String)
+    date = Column(String)
+
 
 class KNNVector(Field):
     name = "knn_vector"
@@ -13,7 +76,7 @@ method = {
 
 index_name_1 = 'movie'
 
-class Movie(Document):
+class MovieV(Document):
     movie_id = Keyword()
     url = Keyword()
     name = Text()
@@ -38,7 +101,7 @@ class Movie(Document):
 
 index_name_2 = 'user'
 
-class User(Document):
+class UserV(Document):
     user_id = Keyword()
     occupation = Text()
     created_at = Date()
