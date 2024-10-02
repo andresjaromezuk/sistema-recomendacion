@@ -1,23 +1,27 @@
+# %%
 from opensearchpy import Field, Boolean, Float, Integer, Document, Keyword, Text, DenseVector, Nested, Date, Object
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
+from sqlalchemy import create_engine
 
 Base = declarative_base()
+engine = create_engine('postgresql://admin:123456@localhost:5433/data_base_1')
 
 
+# %%
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     occupation = Column(String)
     active_since = Column(String)
 
-class Movie(Base):
-    __tablename__ = 'movies'
-    id = Column(Integer, primary_key=True)
-    name=  Column(String)
-    release_date= Column(String)
-    imbd_url = Column(String)
-    genres = Column(String)
+# class Movie(Base):
+#     __tablename__ = 'movies'
+#     id = Column(Integer, primary_key=True)
+#     name=  Column(String)
+#     release_date= Column(String)
+#     imbd_url = Column(String)
+#     genres = Column(String)
     # unknown = Column(String)
     # action = Column(String)
     # adventure = Column(String)
@@ -41,7 +45,7 @@ class Movie(Base):
 class Worker(Base):
     __tablename__ = 'workers'
     id = Column(Integer, primary_key=True)
-    position= Column(String),
+    position= Column(String)
     category =  Column(String)
     working_hours =  Column(String)
     start_date =  Column(String)
@@ -62,6 +66,7 @@ class Score(Base):
     rating = Column(String)
     date = Column(String)
 
+Base.metadata.create_all(engine)
 
 class KNNVector(Field):
     name = "knn_vector"
@@ -96,7 +101,7 @@ class MovieV(Document):
         }
     def save(self, ** kwargs):
         self.meta.id = self.movie_id
-        return super(Movie, self).save(** kwargs)
+        return super(MovieV, self).save(** kwargs)
 
 
 index_name_2 = 'user'
@@ -120,4 +125,15 @@ class UserV(Document):
         }
     def save(self, ** kwargs):
         self.meta.id = self.user_id
-        return super(User, self).save(** kwargs)
+        return super(UserV, self).save(** kwargs)
+
+
+
+# %%
+from sqlalchemy import inspect
+inspector = inspect(engine)
+
+tables = inspector.get_table_names()
+
+print(tables)
+# %%

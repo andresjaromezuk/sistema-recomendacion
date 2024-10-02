@@ -3,6 +3,9 @@ from flask import Flask, Blueprint
 from flask_restful import Api
 from movies import MovieResource
 from users import UserResource
+from people import PeopleResource
+from scores import ScoreResource
+from workers import WorkerResource
 
 app = Flask(__name__)
 
@@ -16,8 +19,23 @@ api.add_resource(MovieResource,
                  '/movies/<string:action>')
 api.add_resource(UserResource, 
                  '/users', 
-                 '/users/<int:movie_id>',
+                 '/users/<int:user_id>',
                  '/users/<string:action>')
+
+api.add_resource(WorkerResource, 
+                 '/workers', 
+                 '/workers/<int:worker_id>',
+                 '/workers/<string:action>')
+
+api.add_resource(ScoreResource, 
+                 '/scores', 
+                 '/scores/<int:score_id>',
+                 '/scores/<string:action>')
+
+api.add_resource(PeopleResource, 
+                 '/people', 
+                 '/people/<int:people_id>',
+                 '/people/<string:action>')
 
 app.register_blueprint(api_v1_0_bp)
 

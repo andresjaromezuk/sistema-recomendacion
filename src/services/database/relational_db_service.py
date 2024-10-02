@@ -1,15 +1,17 @@
+# %%
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-engine = create_engine('postgresql://admin:J@r#o19b3@localhost/data_base_1')
+#engine = create_engine('postgresql://admin:J@r#o19b3@localhost/data_base_1')
+engine = create_engine('postgresql://admin:123456@localhost:5433/data_base_1')
 
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
-
 #Crea tablas
-#Base.metadata.create_all(bind=engine)
+#Base.metadata.create_all(engine)
 
+#%%
 class RelationalDbService:
 
   def __init__(self):
