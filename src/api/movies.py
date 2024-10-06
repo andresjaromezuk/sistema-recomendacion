@@ -9,6 +9,8 @@ notebook_dir = os.path.dirname(os.path.abspath('recommendation_system.ipynb'))
 project_root = os.path.abspath(os.path.join(notebook_dir, '..'))
 sys.path.append(project_root)
 from services.database.vector_db_service import VectorDbService
+from services.database.relational_db_service import RelationalDbService
+from services.database.models import Movie
 
 client = VectorDbService().client
 client.cluster.health()
@@ -60,6 +62,18 @@ class MovieResource(Resource):
     response = client.search(index='movie', body=query)
 
     response_list = []
-    for h in response['hits']['hits']:
-        response_list.append( h )
+    for idx, h in enumerate(response['hits']['hits']):
+        db_service = RelationalDbService()
+        id= h['_source']['movie_id']
+        print(id)
+        movie = db_service.readOne(Movie, Movie.id == id)
+        if movie:
+            movie_dict= movie.__dict__
+            response_list.append({
+                'name':h['_source']['name'], 
+                'year':movie_dict['release_date'], 
+                'url':h['_source']['url'], 
+                'genres':movie_dict['genres'],
+                'ranking':idx +1
+            })
     return response_list    

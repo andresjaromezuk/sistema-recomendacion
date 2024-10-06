@@ -7,7 +7,7 @@ project_root = os.path.abspath(os.path.join(notebook_dir, '..'))
 sys.path.append(project_root)
 
 from services.database.relational_db_service import RelationalDbService
-from services.database.models import Worker, People, Score, User
+from services.database.models import Worker, People, Score, User, Movie
 
 
 # %%
@@ -76,7 +76,7 @@ for index, row in scores.iterrows():
     id = row['id'],
     user_id = row['user_id'],
     movie_id = row['movie_id'],
-    rating = row['rating'],
+    rating = int(row['rating']),
     date = row['Date']
   )
   db_service.create(score)
@@ -109,3 +109,52 @@ users = db_service.readMany(User)
 for user in users:
     print(f'ID: {user.id}, occupation: {user.occupation} active_since: {user.active_since}')
 # %%
+
+#PELÍCULAS
+# %%
+
+movies = pd.read_csv('../../data/peliculas.csv')
+
+for index, row in movies.iterrows():
+  print(row)
+  db_service = RelationalDbService()
+  movie = Movie(
+    id = row['id'],
+    name=  row['Name'],
+    release_date= row['Release Date'],
+    imbd_url = row['IMDB URL'],
+    # unknown = row['unknown'],
+    # action = row['Action'],
+    # adventure = row['Adventure'],
+    # animation = row['Animation'],
+    # children = row['Children\'s'],
+    # comedy = row['Comedy'],
+    # crime = row['Crime'],
+    # documentary = row['Documentary'],
+    # drama = row['Drama'],
+    # fantasy = row['Fantasy'],
+    # film_noir = row['Film-Noir'],
+    # horror = row['Horror'],
+    # musical = row['Musical'],
+    # mystery = row['Mystery'],
+    # romance = row['Romance'],
+    # sci_fi = row['Sci-Fi'],
+    # thriller = row['Thriller'],
+    # war = row['War'],
+    # western = row['Western']
+  )
+  list_aux = []
+  genres_list = ["unknown","Action","Adventure","Animation","Children's","Comedy","Crime","Documentary","Drama","Fantasy","Film-Noir","Horror","Musical","Mystery","Romance","Sci-Fi","Thriller","War","Western"]
+  for g in genres_list:
+    if row[g] == 1:
+     list_aux.append(g)
+  movie.genres = ",".join(list_aux)
+  db_service.create(movie)
+
+# %%
+db_service = RelationalDbService()
+movies = db_service.readMany(Movie)
+for movie in movies:
+    print(movie.__dict__)
+
+
