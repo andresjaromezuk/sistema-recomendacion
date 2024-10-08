@@ -10,7 +10,7 @@ project_root = os.path.abspath(os.path.join(notebook_dir, '..'))
 sys.path.append(project_root)
 from services.database.vector_db_service import VectorDbService
 from services.database.relational_db_service import RelationalDbService
-from services.database.models import Score, Movie
+from services.database.models import Score, Movie, User
 
 client = VectorDbService().client
 client.cluster.health()
@@ -28,11 +28,25 @@ df_users['userIdx'] = df_users['id'].apply(lambda x: user2Idx[x])
 df_movies['movieIdx'] = df_movies['id'].apply(lambda x: movie2Idx[x])
 
 class UserResource(Resource):
+    
+    def __init__(self) :
+        self.db_service = RelationalDbService()
+
     def get(self, user_id=None):
         if user_id:
-            return {"message": f"Details for user {user_id}"}
+            user = self.db_service.readOne(User, User.id == user_id)
+            return {
+                        'id':user.__dict__['id'],
+                        'occupation':user.__dict__['occupation'],
+                        'active_since':user.__dict__['active_since']
+                    }
         else:
-            return {"message": "List of all users"}
+            users_query = self.db_service.readMany(User)
+            return [{
+                    'id':user.__dict__['id'],
+                    'occupation':user.__dict__['occupation'],
+                    'active_since':user.__dict__['active_since']
+                } for user in users_query]
         
     def post(self, action=None):
         print(action)
@@ -59,14 +73,13 @@ class UserResource(Resource):
         response = client.search(index='user', body=query)
 
         response_list = []
-        db_service = RelationalDbService()
         for idx, h in enumerate(response['hits']['hits']):
             user_id =  h['_id']
-            user_movies = db_service.readOne(Score, Score.user_id == user_id, True, Score.rating.desc()).__dict__
+            user_movies = self.db_service.readOne(Score, Score.user_id == user_id, True, Score.rating.desc()).__dict__
             # user_movies = ratings[ratings['user_id'] == int(user_id)]
             # user_movies = user_movies.loc[user_movies['rating'].idxmax()]
             movie_id = user_movies['movie_id']
-            movie = db_service.readOne(Movie, Movie.id == movie_id).__dict__
+            movie = self.db_service.readOne(Movie, Movie.id == movie_id).__dict__
             print(movie)
             #movie_to_recomend = df_movies[df_movies['id'] == user_movies['movie_id']]
             response_list.append( {

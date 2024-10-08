@@ -21,8 +21,11 @@ class RelationalDbService:
     result = self.session.query(entity).all()
     return result
 
-  def readOne(self, entity, query):
-    result = self.session.query(entity).filter(query).first()
+  def readOne(self, entity, query, order_by_column=None, order_by=None):
+    query_result = self.session.query(entity).filter(query)
+    if order_by_column:
+      query_result = query_result.order_by(order_by)
+    result = query_result.first()
     return result
 
   def create(self, entity):

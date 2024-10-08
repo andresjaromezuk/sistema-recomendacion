@@ -15,32 +15,13 @@ class User(Base):
     occupation = Column(String)
     active_since = Column(String)
 
-# class Movie(Base):
-#     __tablename__ = 'movies'
-#     id = Column(Integer, primary_key=True)
-#     name=  Column(String)
-#     release_date= Column(String)
-#     imbd_url = Column(String)
-#     genres = Column(String)
-    # unknown = Column(String)
-    # action = Column(String)
-    # adventure = Column(String)
-    # animation = Column(String)
-    # children = Column(String)
-    # comedy = Column(String)
-    # crime = Column(String)
-    # documentary = Column(String)
-    # drama = Column(String)
-    # fantasy = Column(String)
-    # film_noir = Column(String)
-    # horror = Column(String)
-    # musical = Column(String)
-    # mystery = Column(String)
-    # romance = Column(String)
-    # sci_fi = Column(String)
-    # thriller = Column(String)
-    # war = Column(String)
-    # western = Column(String)
+class Movie(Base):
+    __tablename__ = 'movies'
+    id = Column(Integer, primary_key=True)
+    name=  Column(String)
+    release_date= Column(String)
+    imbd_url = Column(String)
+    genres = Column(String)
 
 class Worker(Base):
     __tablename__ = 'workers'
@@ -63,7 +44,7 @@ class Score(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(String)
     movie_id = Column(String)
-    rating = Column(String)
+    rating = Column(Integer)
     date = Column(String)
 
 Base.metadata.create_all(engine)
@@ -130,10 +111,10 @@ class UserV(Document):
 
 
 # %%
-from sqlalchemy import inspect
-inspector = inspect(engine)
+# from sqlalchemy import inspect
+# inspector = inspect(engine)
 
-tables = inspector.get_table_names()
+# tables = inspector.get_table_names()
 
-print(tables)
+# print(tables)
 # %%

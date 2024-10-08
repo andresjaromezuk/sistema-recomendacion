@@ -1,3 +1,4 @@
+# %%
 from opensearchpy import OpenSearch
 
 class VectorDbService:
@@ -14,6 +15,3 @@ class VectorDbService:
       ssl_show_warn=False
     )
 
-    
-  
-  

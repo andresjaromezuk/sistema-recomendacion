@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, jsonify
 
 import pandas as pd
 import numpy as np
@@ -28,13 +28,27 @@ df_users['userIdx'] = df_users['id'].apply(lambda x: user2Idx[x])
 df_movies['movieIdx'] = df_movies['id'].apply(lambda x: movie2Idx[x])
 
 class MovieResource(Resource):
+  def __init__(self) :
+    self.db_service = RelationalDbService()
+  
   def get(self, movie_id=None):
       if movie_id:
-          # Lógica para obtener una película específica
-          return {"message": f"Details for movie {movie_id}"}
+        movie = self.db_service.readOne(Movie, Movie.id == movie_id)
+        return {
+                'name':movie.__dict__['name'], 
+                'year':movie.__dict__['release_date'], 
+                'url':movie.__dict__['imbd_url'], 
+                'genres':movie.__dict__['genres'],
+            }
       else:
-          # Lógica para obtener una lista de películas
-          return {"message": "List of all movies"}
+        movies_query = self.db_service.readMany(Movie)
+        return [{
+                'id':movie.__dict__['id'],
+                'name':movie.__dict__['name'], 
+                'year':movie.__dict__['release_date'], 
+                'url':movie.__dict__['imbd_url'], 
+                'genres':movie.__dict__['genres'],
+            } for movie in movies_query]
 
   def post(self,action=None):
     print(action)
@@ -63,10 +77,9 @@ class MovieResource(Resource):
 
     response_list = []
     for idx, h in enumerate(response['hits']['hits']):
-        db_service = RelationalDbService()
         id= h['_source']['movie_id']
         print(id)
-        movie = db_service.readOne(Movie, Movie.id == id)
+        movie = self.db_service.readOne(Movie, Movie.id == id)
         if movie:
             movie_dict= movie.__dict__
             response_list.append({
