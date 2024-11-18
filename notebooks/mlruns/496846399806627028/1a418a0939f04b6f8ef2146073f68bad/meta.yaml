@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/496846399806627028/1a418a0939f04b6f8ef2146073f68bad/artifacts
+end_time: 1731962034322
+entry_point_name: ''
+experiment_id: '496846399806627028'
+lifecycle_stage: active
+run_id: 1a418a0939f04b6f8ef2146073f68bad
+run_name: Early Stoping + latent factor 5 + dropout + 10 epochs
+run_uuid: 1a418a0939f04b6f8ef2146073f68bad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731958365727
+status: 3
+tags: []
+user_id: andresjaromezuk

@@ -31,8 +31,10 @@ class MovieResource(Resource):
   def __init__(self) :
     self.db_service = RelationalDbService()
   
-  def get(self, movie_id=None):
-      if movie_id:
+  def get(self, movie_id=None, action=None):
+      if action == 'embeddings':
+        return self.all_embeddings()
+      elif movie_id:
         movie = self.db_service.readOne(Movie, Movie.id == movie_id)
         return {
                 'name':movie.__dict__['name'], 
@@ -53,21 +55,20 @@ class MovieResource(Resource):
   def post(self,action=None):
     print(action)
     if action == 'recommendation':
-        return self.movie_recommendation()
+      return self.movie_recommendation()
      
-  
   def movie_recommendation(self):
     data = request.get_json() 
     movie_to_search = data.get('movie')
     vector = np.array(movie_to_search)
-  
+    
     query = {
         "size": 5,
         "query": {
             "knn": {
             "vector": {
                 "vector": vector,
-                "k" : 20
+                "k" : 10
             }
             }
         }
@@ -89,4 +90,29 @@ class MovieResource(Resource):
                 'genres':movie_dict['genres'],
                 'ranking':idx +1
             })
-    return response_list    
+    return response_list   
+
+  def all_embeddings(self):
+    query_all = {
+        "size": 1000,  # Definir el número de resultados que quieres obtener, si es muy grande puedes usar un scroll
+        "query": {
+        "match_all": {}
+      }
+    }
+    response = client.search(index='movie', body=query_all)
+    response_list = []
+    for idx, h in enumerate(response['hits']['hits']):
+      id= h['_source']['movie_id']
+      print(h)
+      movie = self.db_service.readOne(Movie, Movie.id == id)
+      if movie:
+          movie_dict= movie.__dict__
+          response_list.append({
+              'name':h['_source']['name'], 
+              'vector': h['_source']['vector'],
+              'year':movie_dict['release_date'], 
+              'url':h['_source']['url'], 
+              'genres':movie_dict['genres'],
+              'ranking':idx +1
+          })
+    return response_list   

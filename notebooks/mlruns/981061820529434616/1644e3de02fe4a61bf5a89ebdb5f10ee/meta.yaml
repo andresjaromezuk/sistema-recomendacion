@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/1644e3de02fe4a61bf5a89ebdb5f10ee/artifacts
+end_time: 1730669153292
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 1644e3de02fe4a61bf5a89ebdb5f10ee
+run_name: Only latent factor 5
+run_uuid: 1644e3de02fe4a61bf5a89ebdb5f10ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730669060203
+status: 3
+tags: []
+user_id: andresjaromezuk

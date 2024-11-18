@@ -1,0 +1,1 @@
+Early Stoping + latent factor 5 + dropout + 5 epochs + 150 neurons + lr reduce on plateau

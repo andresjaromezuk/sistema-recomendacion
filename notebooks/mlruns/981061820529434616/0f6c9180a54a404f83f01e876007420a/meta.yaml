@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/0f6c9180a54a404f83f01e876007420a/artifacts
+end_time: 1730672580308
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 0f6c9180a54a404f83f01e876007420a
+run_name: Latent factor 3
+run_uuid: 0f6c9180a54a404f83f01e876007420a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730672513738
+status: 3
+tags: []
+user_id: andresjaromezuk

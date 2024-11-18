@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/ca28e7fd4ddc44e3b000817d2b9fd42c/artifacts
+end_time: 1730672755260
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: ca28e7fd4ddc44e3b000817d2b9fd42c
+run_name: Early Stoping + Latent factor 3
+run_uuid: ca28e7fd4ddc44e3b000817d2b9fd42c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730672680856
+status: 3
+tags: []
+user_id: andresjaromezuk

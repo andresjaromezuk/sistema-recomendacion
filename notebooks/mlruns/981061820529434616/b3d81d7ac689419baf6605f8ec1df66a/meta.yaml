@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/b3d81d7ac689419baf6605f8ec1df66a/artifacts
+end_time: 1730681718360
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: b3d81d7ac689419baf6605f8ec1df66a
+run_name: peaceful-grouse-484
+run_uuid: b3d81d7ac689419baf6605f8ec1df66a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730681646602
+status: 3
+tags: []
+user_id: andresjaromezuk

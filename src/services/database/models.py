@@ -70,7 +70,7 @@ class MovieV(Document):
     terror = Boolean()
 
     vector = KNNVector(
-        3,
+        5,
         method
     )
     class Index:
@@ -94,7 +94,7 @@ class UserV(Document):
     active_since =Text()
 
     vector = KNNVector(
-        3,
+        5,
         method
     )
     class Index:

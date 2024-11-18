@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/325fb822978947a1bed3c922cd364912/artifacts
+end_time: 1730668487334
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 325fb822978947a1bed3c922cd364912
+run_name: Full Dropout
+run_uuid: 325fb822978947a1bed3c922cd364912
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730668375866
+status: 3
+tags: []
+user_id: andresjaromezuk

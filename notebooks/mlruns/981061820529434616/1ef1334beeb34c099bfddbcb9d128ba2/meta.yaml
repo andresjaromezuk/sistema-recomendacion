@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/1ef1334beeb34c099bfddbcb9d128ba2/artifacts
+end_time: 1730668967741
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 1ef1334beeb34c099bfddbcb9d128ba2
+run_name: Dropout + latent factor 5
+run_uuid: 1ef1334beeb34c099bfddbcb9d128ba2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730668848253
+status: 3
+tags: []
+user_id: andresjaromezuk

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/d737d3f3642845dda0c2c1ccfbdce3f5/artifacts
+end_time: 1730675933825
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: d737d3f3642845dda0c2c1ccfbdce3f5
+run_name: Early Stoping + Latent factor 5 + 75 neurons
+run_uuid: d737d3f3642845dda0c2c1ccfbdce3f5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730675894679
+status: 3
+tags: []
+user_id: andresjaromezuk

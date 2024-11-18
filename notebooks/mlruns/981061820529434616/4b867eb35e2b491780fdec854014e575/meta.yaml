@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/4b867eb35e2b491780fdec854014e575/artifacts
+end_time: 1730676038879
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 4b867eb35e2b491780fdec854014e575
+run_name: Dropout + Early Stopping + Latent factor 5 + 75 neurons
+run_uuid: 4b867eb35e2b491780fdec854014e575
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730675989683
+status: 3
+tags: []
+user_id: andresjaromezuk

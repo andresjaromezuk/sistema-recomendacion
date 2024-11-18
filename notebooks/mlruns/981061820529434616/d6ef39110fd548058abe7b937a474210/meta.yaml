@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/d6ef39110fd548058abe7b937a474210/artifacts
+end_time: 1730668190847
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: d6ef39110fd548058abe7b937a474210
+run_name: Early Stopping
+run_uuid: d6ef39110fd548058abe7b937a474210
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730668102910
+status: 3
+tags: []
+user_id: andresjaromezuk
