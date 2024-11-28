@@ -118,3 +118,4 @@ class UserV(Document):
 
 # print(tables)
 # %%
+#Movie.__table__.drop(engine)

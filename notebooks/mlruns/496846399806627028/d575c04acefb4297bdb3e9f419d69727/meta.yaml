@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/496846399806627028/d575c04acefb4297bdb3e9f419d69727/artifacts
+deleted_time: 1732622240371
+end_time: null
+entry_point_name: ''
+experiment_id: '496846399806627028'
+lifecycle_stage: deleted
+run_id: d575c04acefb4297bdb3e9f419d69727
+run_name: Latent factor 5 y 5 + dropout + 10 epochs + lr reduce on plateau
+run_uuid: d575c04acefb4297bdb3e9f419d69727
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732615431345
+status: 1
+tags: []
+user_id: andresjaromezuk

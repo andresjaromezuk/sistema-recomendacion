@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/04a418759082401fb7a86988ebf4667f/artifacts
+end_time: 1732812291394
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 04a418759082401fb7a86988ebf4667f
+run_name: honorable-penguin-93
+run_uuid: 04a418759082401fb7a86988ebf4667f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732811650699
+status: 3
+tags: []
+user_id: andresjaromezuk

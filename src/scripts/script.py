@@ -113,14 +113,14 @@ for user in users:
 #PELÍCULAS
 # %%
 
-movies = pd.read_csv('../../data/peliculas.csv')
+movies = pd.read_csv('../../data/ml-32m/movies.csv')
 
 for index, row in movies.iterrows():
   print(row)
   db_service = RelationalDbService()
   movie = Movie(
-    id = row['id'],
-    name=  row['Name'],
+    id = row['movieId'],
+    name=  row['title'],
     release_date= row['Release Date'],
     imbd_url = row['IMDB URL'],
     # unknown = row['unknown'],

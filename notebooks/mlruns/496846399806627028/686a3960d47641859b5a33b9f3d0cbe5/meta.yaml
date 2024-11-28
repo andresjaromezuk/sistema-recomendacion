@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/496846399806627028/686a3960d47641859b5a33b9f3d0cbe5/artifacts
+deleted_time: 1732667742945
+end_time: 1732667716411
+entry_point_name: ''
+experiment_id: '496846399806627028'
+lifecycle_stage: deleted
+run_id: 686a3960d47641859b5a33b9f3d0cbe5
+run_name: Latent factor 5 y 5 + 10 epochs (3)
+run_uuid: 686a3960d47641859b5a33b9f3d0cbe5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732666435188
+status: 3
+tags: []
+user_id: andresjaromezuk

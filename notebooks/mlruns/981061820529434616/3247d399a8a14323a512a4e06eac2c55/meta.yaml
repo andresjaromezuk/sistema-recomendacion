@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/981061820529434616/3247d399a8a14323a512a4e06eac2c55/artifacts
+end_time: 1732813466659
+entry_point_name: ''
+experiment_id: '981061820529434616'
+lifecycle_stage: active
+run_id: 3247d399a8a14323a512a4e06eac2c55
+run_name: Latent factor 5 + LR Reduce + 250 epochs
+run_uuid: 3247d399a8a14323a512a4e06eac2c55
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732813244956
+status: 3
+tags: []
+user_id: andresjaromezuk

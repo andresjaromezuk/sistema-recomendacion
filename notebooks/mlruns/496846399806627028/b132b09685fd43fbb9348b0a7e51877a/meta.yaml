@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/496846399806627028/b132b09685fd43fbb9348b0a7e51877a/artifacts
+deleted_time: 1732667800976
+end_time: 1732667784332
+entry_point_name: ''
+experiment_id: '496846399806627028'
+lifecycle_stage: deleted
+run_id: b132b09685fd43fbb9348b0a7e51877a
+run_name: efficient-eel-577
+run_uuid: b132b09685fd43fbb9348b0a7e51877a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732667762802
+status: 3
+tags: []
+user_id: andresjaromezuk
